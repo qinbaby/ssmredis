@@ -23,13 +23,27 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-mybatis:
-  mapper-locations: classpath:mapping/*.xml
-  type-aliases-package: com.xcc.model
+    mybatis:
+      mapper-locations: classpath:mapping/*.xml
+      type-aliases-package: ssmredis.model
+    redis:
+        host: 39.108.192.174
+        password: 123
+        port: 6379
+        pool:
+          max-idle: 100
+          min-idle: 1
+          max-active: 1000
+          max-wait: -1
 
-#pagehelper分页插件
-pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
+    #pagehelper分页插件
+    pagehelper:
+      helperDialect: mysql
+      reasonable: true
+      supportMethodsArguments: true
+      params: count=countSql
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+        show-sql: true

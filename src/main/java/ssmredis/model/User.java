@@ -1,6 +1,14 @@
 package ssmredis.model;
 
-public class User {
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+@Entity
+public class User implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+    @Id
     private Long id;
 
     private String name;
@@ -8,6 +16,15 @@ public class User {
     private String password;
 
     private String phone;
+    public User() {
+
+    }
+    public User(Long id, String name, String password, String phone) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.phone = phone;
+    }
 
     public Long getId() {
         return id;
