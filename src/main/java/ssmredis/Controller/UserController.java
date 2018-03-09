@@ -27,4 +27,10 @@ public class UserController {
 
         return userService.findAllUser(pageNum,pageSize);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/getOne/{id}",produces = {"application/json;charset=UTF-8"})
+    public User findOne(@PathVariable("id") Integer id){
+        return userService.selectByPrimaryKey(id);
+    }
 }
